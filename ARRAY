@@ -1,0 +1,161 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+int main(){
+	int arr[100],n,ch,m,pos,i,j,found,l,temp;
+	do{
+		printf("\n-----------------------------------------");
+		printf("\n1. CREATE DATA");
+		printf("\n2. DISPLAY DATA");
+		printf("\n3. APPEND DATA");
+		printf("\n4. COUNT DATA");
+		printf("\n5. POSITION OF THE DATA");
+		printf("\n6. UPDATE BY POSITION");
+		printf("\n7. DELETE DATA");
+		printf("\n8. REVERSE DATA");
+		printf("\n9. SEARCH BY ELEMENT");
+		printf("\n10. SEE DATA IN ASSENDING ORDER");
+		printf("\n0. EXIT");
+		printf("\n-----------------------------------------");
+		printf("\nEnter your choice : ");
+		scanf("%d",&ch);
+		
+		switch(ch){
+			case 1: 
+				printf("\nEnter how many numbers you want to add :");
+				scanf("%d",&n);
+				
+				for(i=0;i<n;i++){
+					printf("Enter numbers in arr[%d] :",i);
+					scanf("%d",&arr[i]);
+					
+				}
+				break;
+			case 2:for(i=0;i<n;i++){
+				printf("\nAt positon %d :%d",i+1,arr[i]);
+				
+			}
+			break;
+			case 3:
+					printf("\nEnter how many extra numbers you want to add :");
+				scanf("%d",&m);
+				
+				for(i=n;i<n+m;i++){
+					printf("Enter numbers in arr[%d] :",i);
+					scanf("%d",&arr[i]);
+					
+				}
+				n=n+m;
+				break;
+				case 4:
+					printf("\nTotal number of data :%d",n);
+					break;
+				case 5: 
+				printf("Enter position you search ");
+				scanf("%d",&pos);
+				
+				if(pos>n){
+					printf("Position must be less than or equal to %d",n);
+				}
+				 else {
+					printf("Element at %d position is %d",pos,arr[pos-1]);
+				}
+				break;
+				case 6:
+						printf("Enter position you search ");
+				scanf("%d",&pos);
+				
+				if(pos>n){
+					printf("\nPosition must be less than or equal to %d",n);
+				}
+				 else {
+					printf("\nElement at %d position is %d",pos,arr[pos-1]);
+					printf("\nEnter new Data :");
+					scanf("%d",&arr[pos-1]);
+					printf("\nElement at %d position %d is updated",pos,arr[pos-1]);
+				}
+				break;
+				case 7:
+						printf("\nEnter position you want to delete :");
+				scanf("%d",&pos);
+				
+				if(pos>n){
+					printf("\nPosition must be less than or equal to %d",n);
+				}
+				 else {
+					printf("\n %d is deleted successfully",arr[pos-1]);
+					for(i=pos-1;i<n-1;i++){
+						arr[i]=arr[i+1];
+					}
+					n--;
+				}
+				
+				break;
+				case 8:
+					printf("\nREVERSE the data is\n :");
+					for(i=n-1;i>=0;i--){
+						printf("\n%d",arr[i]);
+					}
+				
+					break;
+				case 9:
+					printf("Enter the element :");
+					scanf("%d",&j);
+				
+					found=0;
+					for (i=0;i<n;i++){
+						if(arr[i]==j){
+						found=1;
+					break;
+							}
+						}
+						if(found==1){
+							if(i+1==1){
+								printf("Element found at 1st position... ");
+								
+							}
+							else if(i+1==2){
+									printf("Element found at 2nd position... ");
+							}
+							else if(i+1==3){
+									printf("Element found at 3rd position... ");
+							}
+							else
+							printf("%d Element found at %dth position ",j,i+1);
+						}
+						else {
+							printf("\nElement no found....");
+						}
+					
+					break;
+					case 10: 
+							for(i=0;i<n;i++){
+							for(l=i+1;l<n;l++){
+								if(arr[i]>arr[l]){
+									temp=arr[i];
+									arr[i]=arr[j];
+									arr[j]=temp;
+									
+								}
+								
+							}
+						}
+						
+						printf("\nSorted data :");
+						for(i=0;i<n;i++){
+							printf("\t %5d",arr[i]);
+						}
+					
+						break;
+						
+						
+						
+					}
+					
+					
+					
+		}while(ch!= 0);	
+		return 0;
+		
+	}
+	
